@@ -65,7 +65,7 @@ extension DependencyContainer: ViewControllerFactory{
     }
     
     func makePopularViewController() -> PopularViewController {
-        return PopularViewController()
+        return PopularViewController(factory: self)
     }
     
     
