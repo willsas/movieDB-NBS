@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class HomePopularCollectionViewCell: UICollectionViewCell {
+class HomeMovieCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var imageOutlet: UIImageView!

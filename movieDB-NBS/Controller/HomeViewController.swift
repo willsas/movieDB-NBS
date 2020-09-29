@@ -12,9 +12,11 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
-    typealias Factory = MovieServiceFactory
+    typealias Factory = MovieServiceFactory & CoordinatorFactory
     private let factory: Factory
     private let vm: HomeViewModel
+    
+    private lazy var coordinator = factory.makeHomeCoordinator(vc: self)
     
     init(factory: Factory) {
         self.factory = factory
@@ -40,11 +42,15 @@ class HomeViewController: UIViewController {
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = vm
         tableViewOutlet.register(BannerTableViewCell.self)
-        tableViewOutlet.register(HomePopularTableViewCell.self)
+        tableViewOutlet.register(HomeMovieTableViewCell.self)
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate{
+    func onNeedToDetailViewController(movie: MovieModel, image: UIImage) {
+        coordinator.pushToDetailViewController(movie: movie, image: image)
+    }
+    
     func onReloadData() {
         tableViewOutlet.reloadData()
     }

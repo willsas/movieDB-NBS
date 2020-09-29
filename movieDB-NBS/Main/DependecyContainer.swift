@@ -54,6 +54,8 @@ extension DependencyContainer: PersistenceServiceFactory{
 
 
 extension DependencyContainer: ViewControllerFactory{
+    
+    
     func makeMainTabBarController() -> MainTabBarController {
         return MainTabBarController(factory: self)
     }
@@ -66,12 +68,13 @@ extension DependencyContainer: ViewControllerFactory{
         return PopularViewController()
     }
     
-    func makeDetailViewController(movie: MovieModel) -> DetailViewController {
-        return DetailViewController()
+    
+    func makeDetailViewController(movie: MovieModel, image: UIImage) -> DetailViewController {
+        return DetailViewController(factory: self, movie: movie, image: image)
     }
     
     func makeFavouriteViewController() -> FavouriteViewController {
-          return FavouriteViewController()
+        return FavouriteViewController()
     }
     
     

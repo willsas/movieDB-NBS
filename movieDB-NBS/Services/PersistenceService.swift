@@ -11,7 +11,12 @@ import Foundation
 
 /// Key for an object that conform Persistable Protocol
 enum PersistenceServiceKey: String{
+    
+   // Bool.self
     case login
+    
+    // [Int].self
+    case favouriteMovieIDs
 }
 
 

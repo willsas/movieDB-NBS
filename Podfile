@@ -10,5 +10,6 @@ target 'movieDB-NBS' do
   pod 'RxCocoa'
   pod 'Alamofire', "~> 4.9.1"
   pod 'SDWebImage'
+  pod 'RealmSwift'
 
 end

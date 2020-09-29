@@ -42,10 +42,12 @@
 		BE1CC95A25232A4C00D3CA41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95925232A4C00D3CA41 /* UITableView+Extension.swift */; };
 		BE1CC95C25232A8700D3CA41 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95B25232A8700D3CA41 /* UICollectionView+Extension.swift */; };
 		BE1CC95E25232DF300D3CA41 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95D25232DF300D3CA41 /* UIAlertController+Extension.swift */; };
-		BE394F9525234D2A007C5FA8 /* HomePopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9325234D2A007C5FA8 /* HomePopularTableViewCell.swift */; };
-		BE394F9625234D2A007C5FA8 /* HomePopularTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394F9425234D2A007C5FA8 /* HomePopularTableViewCell.xib */; };
-		BE394F9925234E4E007C5FA8 /* HomePopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9725234E4E007C5FA8 /* HomePopularCollectionViewCell.swift */; };
-		BE394F9A25234E4E007C5FA8 /* HomePopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394F9825234E4E007C5FA8 /* HomePopularCollectionViewCell.xib */; };
+		BE394F9525234D2A007C5FA8 /* HomeMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9325234D2A007C5FA8 /* HomeMovieTableViewCell.swift */; };
+		BE394F9625234D2A007C5FA8 /* HomeMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394F9425234D2A007C5FA8 /* HomeMovieTableViewCell.xib */; };
+		BE394F9925234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9725234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift */; };
+		BE394F9A25234E4E007C5FA8 /* HomeMovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394F9825234E4E007C5FA8 /* HomeMovieCollectionViewCell.xib */; };
+		BE394F9C252385EC007C5FA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */; };
+		BE394F9E25239324007C5FA8 /* RealmPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9D25239324007C5FA8 /* RealmPersistenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,10 +90,12 @@
 		BE1CC95925232A4C00D3CA41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		BE1CC95B25232A8700D3CA41 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		BE1CC95D25232DF300D3CA41 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
-		BE394F9325234D2A007C5FA8 /* HomePopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularTableViewCell.swift; sourceTree = "<group>"; };
-		BE394F9425234D2A007C5FA8 /* HomePopularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePopularTableViewCell.xib; sourceTree = "<group>"; };
-		BE394F9725234E4E007C5FA8 /* HomePopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCollectionViewCell.swift; sourceTree = "<group>"; };
-		BE394F9825234E4E007C5FA8 /* HomePopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePopularCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE394F9325234D2A007C5FA8 /* HomeMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieTableViewCell.swift; sourceTree = "<group>"; };
+		BE394F9425234D2A007C5FA8 /* HomeMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieTableViewCell.xib; sourceTree = "<group>"; };
+		BE394F9725234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE394F9825234E4E007C5FA8 /* HomeMovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		BE394F9D25239324007C5FA8 /* RealmPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				BE1CC94A2523064700D3CA41 /* HomeViewModel.swift */,
+				BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			children = (
 				BE1CC9322522EC1900D3CA41 /* PersistenceService.swift */,
 				BE1CC9342522EC3C00D3CA41 /* UserDefaultPersistenceService.swift */,
+				BE394F9D25239324007C5FA8 /* RealmPersistenceService.swift */,
 			);
 			name = "Persistence Service";
 			sourceTree = "<group>";
@@ -267,10 +273,10 @@
 				BE1CC9522523276700D3CA41 /* BannerTableViewCell.xib */,
 				BE1CC955252327C600D3CA41 /* BannerCollectionViewCell.swift */,
 				BE1CC956252327C600D3CA41 /* BannerCollectionViewCell.xib */,
-				BE394F9325234D2A007C5FA8 /* HomePopularTableViewCell.swift */,
-				BE394F9425234D2A007C5FA8 /* HomePopularTableViewCell.xib */,
-				BE394F9725234E4E007C5FA8 /* HomePopularCollectionViewCell.swift */,
-				BE394F9825234E4E007C5FA8 /* HomePopularCollectionViewCell.xib */,
+				BE394F9325234D2A007C5FA8 /* HomeMovieTableViewCell.swift */,
+				BE394F9425234D2A007C5FA8 /* HomeMovieTableViewCell.xib */,
+				BE394F9725234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift */,
+				BE394F9825234E4E007C5FA8 /* HomeMovieCollectionViewCell.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -344,13 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1CC9452522FE3000D3CA41 /* FavouriteViewController.xib in Resources */,
-				BE394F9625234D2A007C5FA8 /* HomePopularTableViewCell.xib in Resources */,
+				BE394F9625234D2A007C5FA8 /* HomeMovieTableViewCell.xib in Resources */,
 				BE1CC9292522EB6D00D3CA41 /* PopularViewController.xib in Resources */,
 				BE1CC958252327C600D3CA41 /* BannerCollectionViewCell.xib in Resources */,
 				BE1CC90F2522E63400D3CA41 /* LaunchScreen.storyboard in Resources */,
 				BE1CC92D2522EB9200D3CA41 /* DetailViewController.xib in Resources */,
 				BE1CC90C2522E63400D3CA41 /* Assets.xcassets in Resources */,
-				BE394F9A25234E4E007C5FA8 /* HomePopularCollectionViewCell.xib in Resources */,
+				BE394F9A25234E4E007C5FA8 /* HomeMovieCollectionViewCell.xib in Resources */,
 				BE1CC9252522EB1100D3CA41 /* HomeViewController.xib in Resources */,
 				BE1CC9542523276700D3CA41 /* BannerTableViewCell.xib in Resources */,
 			);
@@ -407,10 +413,11 @@
 			files = (
 				BE1CC94B2523064700D3CA41 /* HomeViewModel.swift in Sources */,
 				BE1CC94D25230D7800D3CA41 /* EnvironmentService.swift in Sources */,
+				BE394F9C252385EC007C5FA8 /* DetailViewModel.swift in Sources */,
 				BE1CC957252327C600D3CA41 /* BannerCollectionViewCell.swift in Sources */,
 				BE1CC91F2522E97900D3CA41 /* FactoryProtocols.swift in Sources */,
 				BE1CC9282522EB6D00D3CA41 /* PopularViewController.swift in Sources */,
-				BE394F9525234D2A007C5FA8 /* HomePopularTableViewCell.swift in Sources */,
+				BE394F9525234D2A007C5FA8 /* HomeMovieTableViewCell.swift in Sources */,
 				BE1CC9412522FD7600D3CA41 /* MainTabBarController.swift in Sources */,
 				BE1CC9492523046100D3CA41 /* UIImage+Extension.swift in Sources */,
 				BE1CC9472522FFDE00D3CA41 /* UIWindow+Extension.swift in Sources */,
@@ -425,8 +432,9 @@
 				BE1CC93B2522ECE000D3CA41 /* URLSessionNetworkingService.swift in Sources */,
 				BE1CC95C25232A8700D3CA41 /* UICollectionView+Extension.swift in Sources */,
 				BE1CC93D2522FACF00D3CA41 /* AlamofireNetworkingService.swift in Sources */,
+				BE394F9E25239324007C5FA8 /* RealmPersistenceService.swift in Sources */,
 				BE1CC93F2522FB6B00D3CA41 /* CacheService.swift in Sources */,
-				BE394F9925234E4E007C5FA8 /* HomePopularCollectionViewCell.swift in Sources */,
+				BE394F9925234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift in Sources */,
 				BE1CC9442522FE3000D3CA41 /* FavouriteViewController.swift in Sources */,
 				BE1CC9392522ECC200D3CA41 /* NetworkingService.swift in Sources */,
 				BE1CC94F252326BC00D3CA41 /* Array+Extension.swift in Sources */,

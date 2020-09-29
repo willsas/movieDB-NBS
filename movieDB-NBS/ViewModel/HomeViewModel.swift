@@ -13,6 +13,7 @@ import UIKit
 protocol HomeViewModelDelegate: class {
     func onReloadData()
     func onError(title: String, subtitle: String)
+    func onNeedToDetailViewController(movie: MovieModel, image: UIImage)
     
 }
 
@@ -118,9 +119,12 @@ extension HomeViewModel: UITableViewDataSource{
             case .popular:
                 
                 
-                if let cell = tableView.dequeueReusableCell(HomePopularTableViewCell.self),
+                if let cell = tableView.dequeueReusableCell(HomeMovieTableViewCell.self),
                     let vm = item as? HomePopularMoviesViewModel{
                     cell.popularItems = vm
+                    cell.onSelectedMovie = { [unowned self] (movie, image) in
+                        self.delegate?.onNeedToDetailViewController(movie: movie, image: image)
+                    }
                     return cell
                 }
                 
@@ -128,9 +132,12 @@ extension HomeViewModel: UITableViewDataSource{
                 
             case .comingSoon:
                 
-                if let cell = tableView.dequeueReusableCell(HomePopularTableViewCell.self),
+                if let cell = tableView.dequeueReusableCell(HomeMovieTableViewCell.self),
                     let vm = item as? HomeComingSoonMoviesViewModel{
                     cell.comingSoonItems = vm
+                    cell.onSelectedMovie = { [unowned self] (movie, image) in
+                        self.delegate?.onNeedToDetailViewController(movie: movie, image: image)
+                    }
                     return cell
                 }
                 

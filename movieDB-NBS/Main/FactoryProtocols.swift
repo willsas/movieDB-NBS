@@ -25,7 +25,7 @@ protocol ViewControllerFactory{
     
     func makePopularViewController() -> PopularViewController
     
-    func makeDetailViewController(movie: MovieModel) -> DetailViewController
+    func makeDetailViewController(movie: MovieModel, image: UIImage) -> DetailViewController
     
     func makeFavouriteViewController() -> FavouriteViewController
 }

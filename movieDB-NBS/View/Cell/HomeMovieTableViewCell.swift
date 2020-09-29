@@ -8,12 +8,12 @@
 
 import UIKit
 
-class HomePopularTableViewCell: UITableViewCell {
+class HomeMovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
     @IBOutlet weak var headerTitleOutlet: UILabel!
     
-    private var cellID = String(describing: HomePopularCollectionViewCell.self)
+    private var cellID = String(describing: HomeMovieCollectionViewCell.self)
     
     
     var popularItems: HomePopularMoviesViewModel?{
@@ -31,6 +31,8 @@ class HomePopularTableViewCell: UITableViewCell {
             headerTitleOutlet.text = comingSoonItems?.headerTitle
         }
     }
+    
+    var onSelectedMovie: (MovieModel, UIImage) -> Void = {_, _ in}
     
     
     private var movies = [MovieModel](){
@@ -55,19 +57,19 @@ class HomePopularTableViewCell: UITableViewCell {
     private func setupCollectionView(){
         collectionViewOutlet.dataSource = self
         collectionViewOutlet.delegate = self
-        collectionViewOutlet.register(HomePopularCollectionViewCell.self)
+        collectionViewOutlet.register(HomeMovieCollectionViewCell.self)
     }
     
 }
 
 
-extension HomePopularTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension HomeMovieTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count > 10 ? 10 : movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? HomePopularCollectionViewCell,
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? HomeMovieCollectionViewCell,
             let item = movies[safe: indexPath.row]{
             cell.items = item
             return cell
@@ -78,6 +80,15 @@ extension HomePopularTableViewCell: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 100, height: collectionView.frame.height)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let movie = movies[safe: indexPath.item],
+            let cell = collectionView.cellForItem(at: indexPath) as? HomeMovieCollectionViewCell,
+            let image = cell.imageOutlet.image else {return}
+        onSelectedMovie(movie, image)
+        
     }
     
     
