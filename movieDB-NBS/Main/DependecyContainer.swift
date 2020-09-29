@@ -74,7 +74,7 @@ extension DependencyContainer: ViewControllerFactory{
     }
     
     func makeFavouriteViewController() -> FavouriteViewController {
-        return FavouriteViewController()
+        return FavouriteViewController(factory: self)
     }
     
     
@@ -110,6 +110,10 @@ extension DependencyContainer: MovieServiceFactory{
 
 
 extension DependencyContainer :CoordinatorFactory{
+    func makeFavouriteCoordinator(vc: UIViewController) -> FavouriteCoordinator {
+        return FavouriteCoordinator(factory: self, vc: vc)
+    }
+    
     func makeHomeCoordinator(vc: UIViewController) -> HomeCoordinator {
         return HomeCoordinator(factory: self, vc: vc)
     }

@@ -64,3 +64,24 @@ struct DetailCoordinator: Coordinator {
     }
 }
 
+
+struct FavouriteCoordinator: Coordinator {
+    var navigationController: UINavigationController?
+    
+    var vc: UIViewController?
+    
+    var factory: ViewControllerFactory
+    
+    init(factory: ViewControllerFactory, vc: UIViewController) {
+        self.vc = vc
+        self.navigationController = vc.navigationController
+        self.factory = factory
+    }
+    
+    func pushToDetailViewController(movie: MovieModel, image: UIImage){
+           let vc = factory.makeDetailViewController(movie: movie, image: image)
+           navigationController?.pushViewController(vc, animated: true)
+       }
+}
+
+

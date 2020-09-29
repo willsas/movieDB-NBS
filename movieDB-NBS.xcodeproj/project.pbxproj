@@ -51,6 +51,9 @@
 		BE394FA12523B6A5007C5FA8 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9F2523B6A5007C5FA8 /* PopularCollectionViewCell.swift */; };
 		BE394FA22523B6A5007C5FA8 /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394FA02523B6A5007C5FA8 /* PopularCollectionViewCell.xib */; };
 		BE394FA52523B865007C5FA8 /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394FA42523B865007C5FA8 /* PopularViewModel.swift */; };
+		BE394FA72523C45B007C5FA8 /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394FA62523C45B007C5FA8 /* FavouriteViewModel.swift */; };
+		BE394FAB2523C757007C5FA8 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394FA92523C757007C5FA8 /* FavouriteTableViewCell.swift */; };
+		BE394FAC2523C757007C5FA8 /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394FAA2523C757007C5FA8 /* FavouriteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,9 @@
 		BE394F9F2523B6A5007C5FA8 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE394FA02523B6A5007C5FA8 /* PopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE394FA42523B865007C5FA8 /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
+		BE394FA62523C45B007C5FA8 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
+		BE394FA92523C757007C5FA8 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
+		BE394FAA2523C757007C5FA8 /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,7 @@
 				BE1CC94A2523064700D3CA41 /* HomeViewModel.swift */,
 				BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */,
 				BE394FA42523B865007C5FA8 /* PopularViewModel.swift */,
+				BE394FA62523C45B007C5FA8 /* FavouriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -268,6 +275,7 @@
 		BE1CC9502523274D00D3CA41 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BE394FA82523C73D007C5FA8 /* Favourite */,
 				BE394FA32523B6AB007C5FA8 /* Popular */,
 				BE394F9225234D05007C5FA8 /* Home */,
 			);
@@ -296,6 +304,15 @@
 				BE394FA02523B6A5007C5FA8 /* PopularCollectionViewCell.xib */,
 			);
 			name = Popular;
+			sourceTree = "<group>";
+		};
+		BE394FA82523C73D007C5FA8 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				BE394FA92523C757007C5FA8 /* FavouriteTableViewCell.swift */,
+				BE394FAA2523C757007C5FA8 /* FavouriteTableViewCell.xib */,
+			);
+			name = Favourite;
 			sourceTree = "<group>";
 		};
 		CC52527CE35963C63A54BFCA /* Frameworks */ = {
@@ -377,6 +394,7 @@
 				BE1CC9252522EB1100D3CA41 /* HomeViewController.xib in Resources */,
 				BE1CC9542523276700D3CA41 /* BannerTableViewCell.xib in Resources */,
 				BE394FA22523B6A5007C5FA8 /* PopularCollectionViewCell.xib in Resources */,
+				BE394FAC2523C757007C5FA8 /* FavouriteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE394FA52523B865007C5FA8 /* PopularViewModel.swift in Sources */,
+				BE394FAB2523C757007C5FA8 /* FavouriteTableViewCell.swift in Sources */,
 				BE1CC94B2523064700D3CA41 /* HomeViewModel.swift in Sources */,
 				BE1CC94D25230D7800D3CA41 /* EnvironmentService.swift in Sources */,
 				BE394F9C252385EC007C5FA8 /* DetailViewModel.swift in Sources */,
@@ -449,6 +468,7 @@
 				BE1CC9352522EC3C00D3CA41 /* UserDefaultPersistenceService.swift in Sources */,
 				BE1CC9032522E63200D3CA41 /* AppDelegate.swift in Sources */,
 				BE1CC93B2522ECE000D3CA41 /* URLSessionNetworkingService.swift in Sources */,
+				BE394FA72523C45B007C5FA8 /* FavouriteViewModel.swift in Sources */,
 				BE1CC95C25232A8700D3CA41 /* UICollectionView+Extension.swift in Sources */,
 				BE1CC93D2522FACF00D3CA41 /* AlamofireNetworkingService.swift in Sources */,
 				BE394F9E25239324007C5FA8 /* RealmPersistenceService.swift in Sources */,

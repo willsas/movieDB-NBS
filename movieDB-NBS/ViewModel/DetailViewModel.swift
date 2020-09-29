@@ -64,14 +64,14 @@ class DetailViewModel {
         //
         //
         
-        let favMoviewIDs = userDefault.retriveData([Int].self, forKey: .favouriteMovieIDs)
+        let favMoviewIDs = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
         
         // initial
         if favMoviewIDs == nil{
-            userDefault.saveData([Int](), forKey: .favouriteMovieIDs)
+            userDefault.saveData([MovieModel](), forKey: .favouriteMovie)
         }
         
-        favMoviewIDs?.contains(movie.id) == true ? isFavouriteBinder.accept(true) : isFavouriteBinder.accept(false)
+        favMoviewIDs?.contains(where: {$0.id == movie.id}) == true ? isFavouriteBinder.accept(true) : isFavouriteBinder.accept(false)
         
         
     }
@@ -79,16 +79,16 @@ class DetailViewModel {
     
     
     private func saveToFavourite(){
-        var favMoviewIDs = userDefault.retriveData([Int].self, forKey: .favouriteMovieIDs)
-        favMoviewIDs?.contains(movie.id) == true ? nil : favMoviewIDs?.append(movie.id)
-        userDefault.saveData(favMoviewIDs, forKey: .favouriteMovieIDs)
+        var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        favMovie?.contains(where: {$0.id == movie.id}) == true ? nil : favMovie?.append(movie)
+        userDefault.saveData(favMovie, forKey: .favouriteMovie)
     }
     
     
     private func deleteFavouriete(){
-        var favMoviewIDs = userDefault.retriveData([Int].self, forKey: .favouriteMovieIDs)
-        favMoviewIDs?.removeAll(where: {$0 == movie.id})
-        userDefault.saveData(favMoviewIDs, forKey: .favouriteMovieIDs)
+        var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        favMovie?.removeAll(where: {$0.id == movie.id})
+        userDefault.saveData(favMovie, forKey: .favouriteMovie)
     }
     
     

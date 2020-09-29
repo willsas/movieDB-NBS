@@ -57,5 +57,7 @@ protocol CoordinatorFactory {
     func makePopularCoordinator(vc: UIViewController) -> PopularCoordinator
     
     func makeDetailCoordinator(vc: UIViewController) -> DetailCoordinator
+    
+    func makeFavouriteCoordinator(vc: UIViewController) -> FavouriteCoordinator
 }
 

@@ -17,6 +17,9 @@ enum PersistenceServiceKey: String{
     
     // [Int].self
     case favouriteMovieIDs
+    
+    // [MoviewModel].self
+    case favouriteMovie
 }
 
 
