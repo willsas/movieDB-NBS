@@ -19,17 +19,28 @@ factory protocol is one of the approach of protocol oriented programming and dep
 
 protocol ViewControllerFactory{
     
+    func makeMainTabBarController() -> MainTabBarController
+    
     func makeHomeViewController() -> HomeViewController
     
     func makePopularViewController() -> PopularViewController
     
     func makeDetailViewController(movie: MovieModel) -> DetailViewController
+    
+    func makeFavouriteViewController() -> FavouriteViewController
 }
 
 
 protocol MovieServiceFactory {
 
     func requsestGetMovies(resource: Resource<MovieModel>, completion: @escaping (Result<MovieModel, NetworkingError>) -> Void)
+    
+    func reqeuestGetBanners(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void )
+    
+    func requestGetPopularMovies(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void)
+    
+    func requestGetComingSoonMovies(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void)
+
 }
 
 

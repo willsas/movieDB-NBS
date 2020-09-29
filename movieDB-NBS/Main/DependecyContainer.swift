@@ -25,6 +25,25 @@ final class DependencyContainer{
     
 }
 
+extension DependencyContainer{
+    private func handleNetworkResponse<T>(_ response: Result<BaseModel<T>, NetworkingError>, completion: @escaping (Result<T, NetworkingError>) -> Void){
+        switch response {
+        case .success(let result):
+            
+            if let data = result.results{
+                completion(.success(data))
+            }else{
+                completion(.failure(NetworkingError.other("Error: no data!")))
+            }
+            
+        case .failure(let err):
+            completion(.failure(NetworkingError.err(err)))
+        }
+    }
+}
+
+
+
 extension DependencyContainer: PersistenceServiceFactory{
     func makeUserDefault() -> PersistenceService {
         return UserDefaultPersistenceService()
@@ -35,8 +54,12 @@ extension DependencyContainer: PersistenceServiceFactory{
 
 
 extension DependencyContainer: ViewControllerFactory{
+    func makeMainTabBarController() -> MainTabBarController {
+        return MainTabBarController(factory: self)
+    }
+    
     func makeHomeViewController() -> HomeViewController {
-        return HomeViewController()
+        return HomeViewController(factory: self)
     }
     
     func makePopularViewController() -> PopularViewController {
@@ -45,6 +68,38 @@ extension DependencyContainer: ViewControllerFactory{
     
     func makeDetailViewController(movie: MovieModel) -> DetailViewController {
         return DetailViewController()
+    }
+    
+    func makeFavouriteViewController() -> FavouriteViewController {
+          return FavouriteViewController()
+    }
+    
+    
+}
+
+extension DependencyContainer: MovieServiceFactory{
+    
+    
+    func requsestGetMovies(resource: Resource<MovieModel>, completion: @escaping (Result<MovieModel, NetworkingError>) -> Void) {
+        //
+    }
+    
+    func reqeuestGetBanners(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void) {
+        networkService.perform(resource: resource) { [weak self] (response) in
+            self?.handleNetworkResponse(response, completion: completion)
+        }
+    }
+    
+    func requestGetPopularMovies(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void) {
+        networkService.perform(resource: resource) { [weak self] (response) in
+            self?.handleNetworkResponse(response, completion: completion)
+        }
+    }
+    
+    func requestGetComingSoonMovies(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void) {
+        networkService.perform(resource: resource) { [weak self] (response) in
+            self?.handleNetworkResponse(response, completion: completion)
+        }
     }
     
     

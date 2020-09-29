@@ -10,21 +10,54 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var tableViewOutlet: UITableView!
+    
+    typealias Factory = MovieServiceFactory
+    private let factory: Factory
+    private let vm: HomeViewModel
+    
+    init(factory: Factory) {
+        self.factory = factory
+        self.vm = HomeViewModel(factory: factory)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        vm.delegate = self
+        setupTableView()
+        vm.requestToFetchBanner()
+        vm.reqeustToFetchPopularMovies()
+        vm.requestToFetchCommingSoonMovies()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    private func setupTableView(){
+        tableViewOutlet.delegate = self
+        tableViewOutlet.dataSource = vm
+        tableViewOutlet.register(BannerTableViewCell.self)
+        tableViewOutlet.register(HomePopularTableViewCell.self)
     }
-    */
+}
 
+extension HomeViewController: HomeViewModelDelegate{
+    func onReloadData() {
+        tableViewOutlet.reloadData()
+    }
+    
+    func onError(title: String, subtitle: String) {
+        UIAlertController.basicAlert(title: title, message: subtitle, vc: self)
+    }
+    
+    
+}
+
+
+
+extension HomeViewController: UITableViewDelegate{
+    
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 enum HTTPMethod: String {
     case post = "POST"
     case get = "GET"
@@ -16,11 +18,26 @@ enum HTTPMethod: String {
 }
 
 
+struct BaseModel<T: Codable>: Codable {
+    let page, totalResults, totalPages: Int?
+    let results: T?
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case results
+    }
+}
+
+
+
 struct Resource<T: Codable>{
     var url: URL
     var httpMethod: HTTPMethod
     var params: [String: String]?
     var headers: [String: String]?
+    var cacheUniqueID: String?
 }
 
 
