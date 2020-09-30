@@ -11,11 +11,9 @@ import UIKit
 class MainTabBarController: UITabBarController {
     
     typealias Factoy = ViewControllerFactory
-    
     private let factory: Factoy
 
  
-    
     init(factory: Factoy) {
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +31,7 @@ class MainTabBarController: UITabBarController {
      }
     
     
+    /// insert and setup HomeViewcontroller to tabbar
     private func setupHomeViewController(){
         let vc = factory.makeHomeViewController()
         vc.navigationItem.title = "Home"
@@ -42,6 +41,7 @@ class MainTabBarController: UITabBarController {
         addChild(nav)
     }
     
+    /// insert and setup PopularViweController to tabbar
     private func setupPopularViewController(){
         let vc = factory.makePopularViewController()
         let nav = UINavigationController(rootViewController: vc)
@@ -50,6 +50,7 @@ class MainTabBarController: UITabBarController {
         addChild(nav)
     }
     
+    /// insert and setup FavouriteViewController to tabbar
     private func setupFavouriteViewController(){
         let vc = factory.makeFavouriteViewController()
         vc.navigationItem.title = "Favourite"

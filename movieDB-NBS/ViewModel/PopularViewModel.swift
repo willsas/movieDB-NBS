@@ -30,14 +30,18 @@ class PopularViewModel: NSObject {
         }
     }
     
-    
     weak var delegate: PopularViewModelDelegate?
+    
+    
+    
+    
     
     init(factory: Factory) {
         self.factory = factory
     }
     
     
+    /// Network Reqeust of popular Movies
     func requestPopularMovie(){
         factory.requestGetPopularMovies(resource: MovieModel.popularMoviesReource()) { [weak self] (response) in
             switch response{
@@ -52,6 +56,8 @@ class PopularViewModel: NSObject {
     
     
     
+    /// Query local array
+    /// - Parameter string: string query
     func queryWith(string: String){
         if string != "" && string != " "{
             itemToDisplay = items.filter {$0.title.lowercased().contains(string.lowercased())}
@@ -61,6 +67,9 @@ class PopularViewModel: NSObject {
     }
     
     
+    /// Get movie model at
+    /// - Parameter indexPath: index path
+    /// - Returns: Moview model optional
     func movieAt(indexPath: IndexPath) -> MovieModel? {
         return itemToDisplay[safe: indexPath.row]
     }

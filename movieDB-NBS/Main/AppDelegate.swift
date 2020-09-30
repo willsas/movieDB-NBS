@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
-
 
 }
 
@@ -32,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - PRIVATE FUNCTION
 extension AppDelegate{
     
+    
+    /// Setup first screen of an app
     private func setupFirstScreen(){
         let initialViewController: UIViewController = dependecies.makeMainTabBarController()
         window = UIWindow(frame: UIScreen.main.bounds)

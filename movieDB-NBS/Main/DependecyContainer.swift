@@ -26,6 +26,11 @@ final class DependencyContainer{
 }
 
 extension DependencyContainer{
+    
+    /// Handle network response from all over networking request
+    /// - Parameters:
+    ///   - response: Response result of Basemodel of those generic type
+    ///   - completion: Result completion of generic type
     private func handleNetworkResponse<T>(_ response: Result<BaseModel<T>, NetworkingError>, completion: @escaping (Result<T, NetworkingError>) -> Void){
         switch response {
         case .success(let result):
@@ -81,11 +86,6 @@ extension DependencyContainer: ViewControllerFactory{
 }
 
 extension DependencyContainer: MovieServiceFactory{
-    
-    
-    func requsestGetMovies(resource: Resource<MovieModel>, completion: @escaping (Result<MovieModel, NetworkingError>) -> Void) {
-        //
-    }
     
     func reqeuestGetBanners(resource: Resource<BaseModel<[MovieModel]>>, completion: @escaping (Result<[MovieModel], NetworkingError>) -> Void) {
         networkService.perform(resource: resource) { [weak self] (response) in

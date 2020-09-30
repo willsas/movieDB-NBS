@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIImage{
+    
+    /// Get Uiimage of HouseFill system
     static var houseFill = UIImage(systemName: "house.fill")
+    
+    /// Get UIImage of House system
     static var house = UIImage(systemName: "house")
 }

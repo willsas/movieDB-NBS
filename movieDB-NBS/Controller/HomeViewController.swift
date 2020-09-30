@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
     }
     
     
+    /// Setup all tableView
     private func setupTableView(){
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = vm
@@ -58,7 +59,6 @@ extension HomeViewController: HomeViewModelDelegate{
     func onError(title: String, subtitle: String) {
         UIAlertController.basicAlert(title: title, message: subtitle, vc: self)
     }
-    
     
 }
 

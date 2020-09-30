@@ -53,6 +53,8 @@ class DetailViewController: UIViewController {
         vm.toggleIsFav()
     }
     
+    
+    /// Setup outlet binding
     private func setupBinding(){
         vm.titleBinder.bind(to: titleLabelOutlet.rx.text).disposed(by: disposeBag)
         vm.subtitleBinder.bind(to: subtitleLabelOutlet.rx.text).disposed(by: disposeBag)

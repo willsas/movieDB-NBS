@@ -43,6 +43,9 @@ struct MovieModel: Codable{
 
 
 extension MovieModel{
+    
+    /// Reource to get Banner
+    /// - Returns: Resource base model of [Movie Model]
     static func bannerReource() -> Resource<BaseModel<[MovieModel]>>{
         let baseApiURL = URL(string: Environment.configuration(.baseURLAPI))!
         let url = baseApiURL.appendingPathComponent("/discover/movie")
@@ -53,6 +56,8 @@ extension MovieModel{
         return Resource<BaseModel<[MovieModel]>>(url: url, httpMethod: .get, params: params, headers: nil, cacheUniqueID: url.absoluteString + params.flatMap({$0 + $1}) + "banner")
     }
     
+    /// Resource to get popular movie
+    /// - Returns: Resource BaseModel [MovieModel]
     static func popularMoviesReource() -> Resource<BaseModel<[MovieModel]>>{
         let baseApiURL = URL(string: Environment.configuration(.baseURLAPI))!
         let url = baseApiURL.appendingPathComponent("/discover/movie")
@@ -63,14 +68,15 @@ extension MovieModel{
         ]
         return Resource<BaseModel<[MovieModel]>>(url: url, httpMethod: .get, params: params, headers: nil, cacheUniqueID: url.absoluteString + params.flatMap({$0 + $1}) + "popularityMovies")
     }
-    
-    static func comingSoonResource() -> Resource<BaseModel<[MovieModel]>>{
+    /// Resource to get cooming soon movie
+    /// - Returns: Resource BaseModel [MovieModel]
+    static func comingSoonResource(year: String = "2021") -> Resource<BaseModel<[MovieModel]>>{
         let baseApiURL = URL(string: Environment.configuration(.baseURLAPI))!
         let url = baseApiURL.appendingPathComponent("/discover/movie")
         let params = [
             "api_key" : Environment.configuration(.apiKey),
             "sort_by" : "popularity.desc",
-            "year": "2021",
+            "year": year,
             "page": "1"
         ]
         return Resource<BaseModel<[MovieModel]>>(url: url, httpMethod: .get, params: params, headers: nil, cacheUniqueID: url.absoluteString + params.flatMap({$0 + $1}) + "comingSoonMoviews")

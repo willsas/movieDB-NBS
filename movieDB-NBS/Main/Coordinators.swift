@@ -27,6 +27,10 @@ struct HomeCoordinator: Coordinator {
         self.factory = factory
     }
     
+    /// Push to detail view controller, with navigation controller push
+    /// - Parameters:
+    ///   - movie: Selected Movie Model
+    ///   - image: Image in Movie
     func pushToDetailViewController(movie: MovieModel, image: UIImage){
         let vc = factory.makeDetailViewController(movie: movie, image: image)
         navigationController?.pushViewController(vc, animated: true)
@@ -45,6 +49,10 @@ struct PopularCoordinator: Coordinator {
         self.navigationController = vc.navigationController
         self.factory = factory
     }
+    /// Push to detail view controller, with navigation controller push
+    /// - Parameters:
+    ///   - movie: Selected Movie Model
+    ///   - image: Image in Movie
     func pushToDetailViewController(movie: MovieModel, image: UIImage){
         let vc = factory.makeDetailViewController(movie: movie, image: image)
         navigationController?.pushViewController(vc, animated: true)
@@ -78,10 +86,14 @@ struct FavouriteCoordinator: Coordinator {
         self.factory = factory
     }
     
+    /// Push to detail view controller, with navigation controller push
+    /// - Parameters:
+    ///   - movie: Selected Movie Model
+    ///   - image: Image in Movie
     func pushToDetailViewController(movie: MovieModel, image: UIImage){
-           let vc = factory.makeDetailViewController(movie: movie, image: image)
-           navigationController?.pushViewController(vc, animated: true)
-       }
+        let vc = factory.makeDetailViewController(movie: movie, image: image)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

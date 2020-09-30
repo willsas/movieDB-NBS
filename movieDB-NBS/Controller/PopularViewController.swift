@@ -9,26 +9,27 @@
 import UIKit
 
 class PopularViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
     typealias Factory = MovieServiceFactory & CoordinatorFactory
-     private let factory: Factory
-     private let vm: PopularViewModel
-     private let padding = 5
-     private lazy var coordinator = factory.makePopularCoordinator(vc: self)
-    private lazy var searchController = UISearchController(searchResultsController: nil)
-     
-     init(factory: Factory) {
-         self.factory = factory
-         self.vm = PopularViewModel(factory: factory)
-         super.init(nibName: nil, bundle: nil)
-     }
-     
-     required init?(coder: NSCoder) {
-         fatalError("init(coder:) has not been implemented")
-     }
+    private let factory: Factory
+    private let vm: PopularViewModel
     
+    private let padding = 5
+    private lazy var coordinator = factory.makePopularCoordinator(vc: self)
+    private lazy var searchController = UISearchController(searchResultsController: nil)
+    
+    
+    init(factory: Factory) {
+        self.factory = factory
+        self.vm = PopularViewModel(factory: factory)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
@@ -41,12 +42,14 @@ class PopularViewController: UIViewController {
     
     
     
+    /// Setup CollectionView
     private func setupCollectionView(){
         collectionViewOutlet.delegate = self
         collectionViewOutlet.dataSource = vm
         collectionViewOutlet.register(PopularCollectionViewCell.self)
     }
     
+    /// Set search bar in navigation controller
     private func setupSearchbar(){
         navigationItem.searchController = searchController
         searchController.obscuresBackgroundDuringPresentation = false
@@ -54,18 +57,12 @@ class PopularViewController: UIViewController {
     }
     
     
-
-
+    
+    
 }
 
-extension PopularViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        vm.queryWith(string: searchText)
-    }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        vm.queryWith(string: "")
-    }
-}
+
+
 
 
 extension PopularViewController: PopularViewModelDelegate{
@@ -84,6 +81,14 @@ extension PopularViewController: PopularViewModelDelegate{
     
 }
 
+extension PopularViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        vm.queryWith(string: searchText)
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        vm.queryWith(string: "")
+    }
+}
 
 extension PopularViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     

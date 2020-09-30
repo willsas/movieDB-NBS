@@ -37,6 +37,9 @@ class DetailViewModel {
     }
     
     
+    // MARK: - Function for Controller
+    
+    /// Toggle favourite when favourite button tapped
     func toggleIsFav(){
         
         var curentValue = isFavouriteBinder.value
@@ -51,6 +54,8 @@ class DetailViewModel {
         
     }
     
+    
+    // MARK: - Private Function
     
     private func isFavouriteMovie(){
         
@@ -77,7 +82,7 @@ class DetailViewModel {
     }
     
     
-    
+    /// Save favourite to persistence service
     private func saveToFavourite(){
         var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
         favMovie?.contains(where: {$0.id == movie.id}) == true ? nil : favMovie?.append(movie)
@@ -85,6 +90,7 @@ class DetailViewModel {
     }
     
     
+    /// delete favourite to persistence service
     private func deleteFavouriete(){
         var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
         favMovie?.removeAll(where: {$0.id == movie.id})

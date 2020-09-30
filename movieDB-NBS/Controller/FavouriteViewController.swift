@@ -46,11 +46,14 @@ class FavouriteViewController: UIViewController {
         vm.populateMovie()
     }
     
+    
+    /// Setup tableVeiw
     private func setupTableView(){
         tableViewOutlet.register(FavouriteTableViewCell.self)
     }
     
     
+    /// Set search bar and listen to delegate
     private func setupSearchBar(){
         navigationItem.searchController = searchController
         searchController.obscuresBackgroundDuringPresentation = false
@@ -60,12 +63,16 @@ class FavouriteViewController: UIViewController {
     
     
     
-    
+    /// Setup binding tableview \
+    /// Listen to datasource and tableview ItemSelected
     private func setupBinding(){
+        
+        // data source
         vm.itemReadyToBind.bind(to: tableViewOutlet.rx.items(cellIdentifier: cellID, cellType: FavouriteTableViewCell.self)){ row, item, cell in
             cell.item = item
         }.disposed(by: disposeBag)
         
+        // action
         tableViewOutlet.rx.itemSelected.map{$0.item}
             .subscribe(onNext: { [unowned self] row in
                 
@@ -82,8 +89,8 @@ class FavouriteViewController: UIViewController {
         
     }
     
-    
 }
+
 
 extension FavouriteViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

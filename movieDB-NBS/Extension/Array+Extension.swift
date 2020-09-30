@@ -11,7 +11,7 @@ import Foundation
 extension Array {
     
     /// Get value but optional
-    /// please play it safe
+    /// please play it saffe
     public subscript(safe index: Int) -> Element?{
         guard startIndex <= index && index < endIndex else {
             return nil

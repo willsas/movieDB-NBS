@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 protocol HomeViewModelDelegate: class {
     func onReloadData()
     func onError(title: String, subtitle: String)
@@ -37,41 +36,61 @@ class HomeViewModel: NSObject {
     }
     
     
+    // MARK: - Functino for ViewController
+    
+    
+    /// Netowrk call Requst Banner
     func requestToFetchBanner(){
         factory.reqeuestGetBanners(resource: MovieModel.bannerReource()) { [weak self] (response) in
             switch response{
             case .success(let result):
                 self?.populateNewBanner(result)
             case .failure(let err):
-                self?.delegate?.onError(title: "error", subtitle: err.localizedDescription)
+                self?.delegate?.onError(title: "Error get Banner", subtitle: err.localizedDescription)
             }
         }
     }
     
+    
+    /// Network call request popular movies
     func reqeustToFetchPopularMovies(){
         factory.requestGetPopularMovies(resource: MovieModel.popularMoviesReource()) { [weak self] (response) in
             switch response{
             case .success(let result):
                 self?.populateNewPopularMovies(result)
             case .failure(let err):
-                self?.delegate?.onError(title: "error", subtitle: err.localizedDescription)
+                self?.delegate?.onError(title: "Error Get Popular Movies", subtitle: err.localizedDescription)
             }
         }
     }
     
+    
+    /// Network call request to cooming soon movies
     func requestToFetchCommingSoonMovies(){
         factory.requestGetComingSoonMovies(resource: MovieModel.comingSoonResource()) { [weak self] (response) in
             switch response{
             case .success(let result):
                 self?.populateNewComingSoon(result)
             case .failure(let err):
-                self?.delegate?.onError(title: "error", subtitle: err.localizedDescription)
+                self?.delegate?.onError(title: "Error get Coming Soon Movies", subtitle: err.localizedDescription)
             }
         }
     }
     
+       
+    //    func moviesAt(indexPath: IndexPath) -> MovieModel{
+    //
+    //    }
+    //
+        
     
     
+    
+    // MARK: - Private function
+    
+    
+    /// Populate Banner or change the banner view model item
+    /// - Parameter movies: array of movies
     private func populateNewBanner(_ movies: [MovieModel]){
         items.removeAll(where: {$0.type == .banner})
         let posterPaths = movies.map {$0.posterPath}
@@ -79,23 +98,26 @@ class HomeViewModel: NSObject {
         delegate?.onReloadData()
     }
     
+    
+    /// Populate the HomePopularMovies item or Change  HomePopularMoviesViewModel
+    /// - Parameter movies: array of movies
     private func populateNewPopularMovies(_ movies: [MovieModel]){
         items.removeAll(where: {$0.type == .popular})
         items.insert(HomePopularMoviesViewModel(items: movies), at: 1)
         delegate?.onReloadData()
     }
     
+    
+    /// Populate the HomeCoomingSoonMoviesViewModel items or change  HomeCoomingSoonMoviesViewModel
+    /// - Parameter movies: <#movies description#>
     private func populateNewComingSoon(_ movies: [MovieModel]){
          items.removeAll(where: {$0.type == .comingSoon})
          items.insert(HomeComingSoonMoviesViewModel(items: movies), at: 2)
          delegate?.onReloadData()
      }
     
-//    func moviesAt(indexPath: IndexPath) -> MovieModel{
-//
-//    }
-//
     
+ 
 }
 
 extension HomeViewModel: UITableViewDataSource{
