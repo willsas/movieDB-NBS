@@ -40,8 +40,10 @@ class FavouriteViewModel {
     
     
     func query(string: String){
-        guard string != "", string != " " else {return}
-        let newValue = rawItem.value.filter({$0.title.lowercased().contains(string)})
-        itemReadyToBind.accept(newValue)
+        if string != "" && string != " "{
+            itemReadyToBind.accept(rawItem.value.filter({$0.title.lowercased().contains(string.lowercased())}))
+        }else{
+            itemReadyToBind.accept(rawItem.value)
+        }
     }
 }

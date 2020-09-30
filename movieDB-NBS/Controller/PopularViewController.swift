@@ -15,7 +15,7 @@ class PopularViewController: UIViewController {
     typealias Factory = MovieServiceFactory & CoordinatorFactory
      private let factory: Factory
      private let vm: PopularViewModel
-     
+     private let padding = 5
      private lazy var coordinator = factory.makePopularCoordinator(vc: self)
     private lazy var searchController = UISearchController(searchResultsController: nil)
      
@@ -49,6 +49,7 @@ class PopularViewController: UIViewController {
     
     private func setupSearchbar(){
         navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
@@ -60,6 +61,9 @@ class PopularViewController: UIViewController {
 extension PopularViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         vm.queryWith(string: searchText)
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        vm.queryWith(string: "")
     }
 }
 
@@ -85,7 +89,9 @@ extension PopularViewController: UICollectionViewDelegate, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width / 2 - 20, height: (view.frame.width * 9/16))
+        let width = (collectionView.frame.size.width - CGFloat(padding) * 2) / CGFloat(2)
+        let height = width * (16 / 9) + 70
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

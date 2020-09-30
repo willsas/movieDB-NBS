@@ -19,7 +19,7 @@ class FavouriteViewController: UIViewController {
     private let vm: FavouriteViewModel
     private let disposeBag = DisposeBag()
     private let cellID = String(describing: FavouriteTableViewCell.self)
-    private lazy var searchConroller = UISearchController()
+    private lazy var searchController = UISearchController()
     private lazy var coordinator = factory.makeFavouriteCoordinator(vc: self)
     
     
@@ -39,7 +39,11 @@ class FavouriteViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         vm.populateMovie()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        vm.populateMovie()
     }
     
     private func setupTableView(){
@@ -48,8 +52,9 @@ class FavouriteViewController: UIViewController {
     
     
     private func setupSearchBar(){
-        navigationController?.navigationItem.searchController = searchConroller
-        searchConroller.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
     }
     
     
@@ -83,6 +88,10 @@ class FavouriteViewController: UIViewController {
 extension FavouriteViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         vm.query(string: searchText)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        vm.query(string: "")
     }
     
 }
