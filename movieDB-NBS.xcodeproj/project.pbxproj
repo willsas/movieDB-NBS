@@ -108,7 +108,6 @@
 		BE394FA62523C45B007C5FA8 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
 		BE394FA92523C757007C5FA8 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		BE394FAA2523C757007C5FA8 /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
-		BE394FAD25243429007C5FA8 /* NBS Algorithm.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "NBS Algorithm.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +152,6 @@
 		BE1CC9012522E63200D3CA41 /* movieDB-NBS */ = {
 			isa = PBXGroup;
 			children = (
-				BE394FAD25243429007C5FA8 /* NBS Algorithm.playground */,
 				BE1CC9162522E72400D3CA41 /* Configs */,
 				BE1CC91B2522E7AA00D3CA41 /* Main */,
 				BE1CC91D2522E7CA00D3CA41 /* Extension */,
