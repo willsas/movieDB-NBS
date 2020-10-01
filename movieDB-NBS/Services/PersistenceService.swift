@@ -7,19 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
 
 /// Key for an object that conform Persistable Protocol
 enum PersistenceServiceKey: String{
     
-   // Bool.self
+   /// Bool
     case login
     
-    // [Int].self
+    /// [Int]
     case favouriteMovieIDs
     
-    // [MoviewModel].self
+    /// [MoviewModel]
     case favouriteMovie
+    
+    /// rawValue of EntityName Movie
+    case coreDataMovie = "Movie"
 }
 
 
@@ -44,5 +48,22 @@ protocol PersistenceService {
     /// - Parameter key: enum PersistenceServiceKey
     func delete(key: PersistenceServiceKey)
     
+    
+    
+    /// Fetch only for core data
+    /// - Parameters:
+    ///   - key: presistence key ONLY  has core data word in it
+    ///   - type: model type
+    ///   - completion: result of generic type
+    func fetchCoreData<T>(key: PersistenceServiceKey, as type: T.Type, completion: @escaping (Result<[T], Error>) -> Void)
+    
+    
+}
+
+
+
+extension PersistenceService{
+    
+    func fetchCoreData<T>(key: PersistenceServiceKey, as type: T.Type, completion: @escaping (Result<[T], Error>) -> Void) { }
     
 }

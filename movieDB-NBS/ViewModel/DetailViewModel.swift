@@ -15,7 +15,7 @@ class DetailViewModel {
     typealias Factory = PersistenceServiceFactory
     private let factory: Factory
     
-    private lazy var userDefault: PersistenceService = factory.makeUserDefault()
+    private lazy var userDefault: PersistenceService = factory.makeUserDefaultPersistenceService()
     private var movie: MovieModel
     private var disposeBag = DisposeBag()
     
@@ -58,16 +58,6 @@ class DetailViewModel {
     // MARK: - Private Function
     
     private func isFavouriteMovie(){
-        
-        //        isFavouriteBinder.subscribe(onNext: { [unowned self] value in
-        //            if value{
-        //                self.saveToFavourite()
-        //            }else{
-        //                self.deleteFavouriete()
-        //            }
-        //        }).disposed(by: disposeBag)
-        //
-        //
         
         let favMoviewIDs = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
         

@@ -50,8 +50,18 @@ extension DependencyContainer{
 
 
 extension DependencyContainer: PersistenceServiceFactory{
-    func makeUserDefault() -> PersistenceService {
+
+    
+    func makeUserDefaultPersistenceService() -> PersistenceService {
         return UserDefaultPersistenceService()
+    }
+    
+//    func makeRealmPersistenceService() -> PersistenceService {
+//        return RealmPersistenceService()
+//    }
+    
+    func makeCoreDataPersistenceService() -> PersistenceService {
+        return CoreDataPersistenceService()
     }
     
     

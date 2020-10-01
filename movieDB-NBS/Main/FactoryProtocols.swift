@@ -69,7 +69,12 @@ protocol MovieServiceFactory {
 protocol PersistenceServiceFactory {
     
     /// Return PersistenceService object based on user default
-    func makeUserDefault() -> PersistenceService
+    func makeUserDefaultPersistenceService() -> PersistenceService
+    
+    /// Make Realm Persistence Service
+//    func makeRealmPersistenceService() -> PersistenceService
+    
+    func makeCoreDataPersistenceService() -> PersistenceService
 }
 
 protocol CoordinatorFactory {

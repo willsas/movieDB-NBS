@@ -15,7 +15,7 @@ class FavouriteViewModel {
     typealias Factory = PersistenceServiceFactory
     private let factory: Factory
     
-    private lazy var userDefault: PersistenceService = factory.makeUserDefault()
+    private lazy var persistenceService: PersistenceService = factory.makeUserDefaultPersistenceService()
     
     var itemReadyToBind: BehaviorRelay<[MovieModel]>
     var rawItem: BehaviorRelay<[MovieModel]>
@@ -38,7 +38,7 @@ class FavouriteViewModel {
     
     /// Pressitence call of saved movie model
     func populateMovie(){
-        if let movies = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie){
+        if let movies = persistenceService.retriveData([MovieModel].self, forKey: .favouriteMovie){
             rawItem.accept(movies)
             itemReadyToBind.accept(movies)
         }

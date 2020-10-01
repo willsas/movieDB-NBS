@@ -42,6 +42,9 @@
 		BE1CC95A25232A4C00D3CA41 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95925232A4C00D3CA41 /* UITableView+Extension.swift */; };
 		BE1CC95C25232A8700D3CA41 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95B25232A8700D3CA41 /* UICollectionView+Extension.swift */; };
 		BE1CC95E25232DF300D3CA41 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1CC95D25232DF300D3CA41 /* UIAlertController+Extension.swift */; };
+		BE1FBC142525913F00FE2A02 /* movieDB-NBS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBC122525913F00FE2A02 /* movieDB-NBS.xcdatamodeld */; };
+		BE1FBC1B2525934B00FE2A02 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBC192525934B00FE2A02 /* Movie+CoreDataClass.swift */; };
+		BE1FBC4125259A1B00FE2A02 /* CoreDataPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1FBC4025259A1B00FE2A02 /* CoreDataPersistenceService.swift */; };
 		BE394F9525234D2A007C5FA8 /* HomeMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9325234D2A007C5FA8 /* HomeMovieTableViewCell.swift */; };
 		BE394F9625234D2A007C5FA8 /* HomeMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE394F9425234D2A007C5FA8 /* HomeMovieTableViewCell.xib */; };
 		BE394F9925234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE394F9725234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift */; };
@@ -96,6 +99,9 @@
 		BE1CC95925232A4C00D3CA41 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		BE1CC95B25232A8700D3CA41 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		BE1CC95D25232DF300D3CA41 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		BE1FBC132525913F00FE2A02 /* movieDB-NBS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "movieDB-NBS.xcdatamodel"; sourceTree = "<group>"; };
+		BE1FBC192525934B00FE2A02 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BE1FBC4025259A1B00FE2A02 /* CoreDataPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceService.swift; sourceTree = "<group>"; };
 		BE394F9325234D2A007C5FA8 /* HomeMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieTableViewCell.swift; sourceTree = "<group>"; };
 		BE394F9425234D2A007C5FA8 /* HomeMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieTableViewCell.xib; sourceTree = "<group>"; };
 		BE394F9725234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BE1CC9102522E63400D3CA41 /* Info.plist */,
+				BE1FBC122525913F00FE2A02 /* movieDB-NBS.xcdatamodeld */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 		BE1CC9172522E78A00D3CA41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BE1FBC192525934B00FE2A02 /* Movie+CoreDataClass.swift */,
 				BE1CC9302522EBE300D3CA41 /* MovieModel.swift */,
 			);
 			path = Model;
@@ -257,6 +265,7 @@
 				BE1CC9322522EC1900D3CA41 /* PersistenceService.swift */,
 				BE1CC9342522EC3C00D3CA41 /* UserDefaultPersistenceService.swift */,
 				BE394F9D25239324007C5FA8 /* RealmPersistenceService.swift */,
+				BE1FBC4025259A1B00FE2A02 /* CoreDataPersistenceService.swift */,
 			);
 			name = "Persistence Service";
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				BE394FAB2523C757007C5FA8 /* FavouriteTableViewCell.swift in Sources */,
 				BE1CC94B2523064700D3CA41 /* HomeViewModel.swift in Sources */,
 				BE1CC94D25230D7800D3CA41 /* EnvironmentService.swift in Sources */,
+				BE1FBC1B2525934B00FE2A02 /* Movie+CoreDataClass.swift in Sources */,
 				BE394F9C252385EC007C5FA8 /* DetailViewModel.swift in Sources */,
 				BE1CC957252327C600D3CA41 /* BannerCollectionViewCell.swift in Sources */,
 				BE1CC91F2522E97900D3CA41 /* FactoryProtocols.swift in Sources */,
@@ -469,10 +479,12 @@
 				BE1CC9032522E63200D3CA41 /* AppDelegate.swift in Sources */,
 				BE1CC93B2522ECE000D3CA41 /* URLSessionNetworkingService.swift in Sources */,
 				BE394FA72523C45B007C5FA8 /* FavouriteViewModel.swift in Sources */,
+				BE1FBC4125259A1B00FE2A02 /* CoreDataPersistenceService.swift in Sources */,
 				BE1CC95C25232A8700D3CA41 /* UICollectionView+Extension.swift in Sources */,
 				BE1CC93D2522FACF00D3CA41 /* AlamofireNetworkingService.swift in Sources */,
 				BE394F9E25239324007C5FA8 /* RealmPersistenceService.swift in Sources */,
 				BE394FA12523B6A5007C5FA8 /* PopularCollectionViewCell.swift in Sources */,
+				BE1FBC142525913F00FE2A02 /* movieDB-NBS.xcdatamodeld in Sources */,
 				BE1CC93F2522FB6B00D3CA41 /* CacheService.swift in Sources */,
 				BE394F9925234E4E007C5FA8 /* HomeMovieCollectionViewCell.swift in Sources */,
 				BE1CC9442522FE3000D3CA41 /* FavouriteViewController.swift in Sources */,
@@ -672,6 +684,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BE1FBC122525913F00FE2A02 /* movieDB-NBS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BE1FBC132525913F00FE2A02 /* movieDB-NBS.xcdatamodel */,
+			);
+			currentVersion = BE1FBC132525913F00FE2A02 /* movieDB-NBS.xcdatamodel */;
+			path = "movieDB-NBS.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BE1CC8F72522E63200D3CA41 /* Project object */;
 }

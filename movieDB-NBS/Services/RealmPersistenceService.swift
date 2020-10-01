@@ -14,10 +14,10 @@
 //    let realm = try! Realm()
 //    
 //    func saveData<T>(_ value: T?, forKey defaultName: PersistenceServiceKey) where T : Decodable, T : Encodable {
+//        guard value.self is Object.Type else {fatalError("The object you trying to save does not conform to Object protocol in RealmSwift")}
 //        do{
-//            let data = try JSONEncoder().encode(value)
 //            try realm.write{
-//                realm.add(Object(value: data))
+//                realm.add(value as! Object)
 //            }
 //        }catch(let err){
 //            print("failed to save data, \(err.localizedDescription)")
@@ -25,9 +25,9 @@
 //        
 //    }
 //    
-//    func retriveData<T>(_ type: T.Type, forKey defaultName: PersistenceServiceKey) -> T? where T : Decodable {
-//        let data = realm.objects(type)
-//        let puppies = realm.objects(Object(value: type.self).type)
+//    func retriveData<T>(_ type: T.Type, forKey defaultName: PersistenceServiceKey) -> T? where T : Decodable, T: Object {
+//        //        guard type == Object.self else {fatalError("The object you trying to save does not conform to Object protocol in RealmSwift")}
+//        return realm.objects(type)[0]
 //        
 //    }
 //    

@@ -44,8 +44,9 @@ class MainTabBarController: UITabBarController {
     /// insert and setup PopularViweController to tabbar
     private func setupPopularViewController(){
         let vc = factory.makePopularViewController()
-        let nav = UINavigationController(rootViewController: vc)
         vc.navigationItem.title = "Top Rated"
+        let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.prefersLargeTitles = true
         nav.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
         addChild(nav)
     }
@@ -55,6 +56,7 @@ class MainTabBarController: UITabBarController {
         let vc = factory.makeFavouriteViewController()
         vc.navigationItem.title = "Favourite"
         let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.prefersLargeTitles = true
         nav.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
         addChild(nav)
     }
