@@ -13,6 +13,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var subtitleOutlet: UILabel!
     
     private var baseURLImage = URL(string: Environment.configuration(.baseURLImage))!
     
@@ -23,14 +24,13 @@ class PopularCollectionViewCell: UICollectionViewCell {
             imageOutlet.sd_setImage(with: baseURLImage.appendingPathComponent(imagePath))
             
             titleOutlet.text = item?.title
-            
+            subtitleOutlet.text = item?.overview
             
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     

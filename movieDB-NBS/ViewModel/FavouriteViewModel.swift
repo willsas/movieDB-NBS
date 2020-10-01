@@ -53,4 +53,10 @@ class FavouriteViewModel {
             itemReadyToBind.accept(rawItem.value)
         }
     }
+    
+    func deleteFavouriete(movie: MovieModel){
+        var favMovie = persistenceService.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        favMovie?.removeAll(where: {$0.id == movie.id})
+        persistenceService.saveData(favMovie, forKey: .favouriteMovie)
+    }
 }

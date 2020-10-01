@@ -13,8 +13,11 @@ class FavouriteTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var contentViewOutlet: UIView!
     
     private var baseURL = URL(string: Environment.configuration(.baseURLImage))!
+    
+    var favouriteButtonTapped: () -> Void = {}
     
     var item: MovieModel?{
         didSet{
@@ -25,15 +28,28 @@ class FavouriteTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentViewOutlet.layer.cornerRadius = 4
+        imageOutlet.layer.cornerRadius = 4
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         
+    }
+    
+    
+    @IBAction func favouriteButtonAction(_ sender: Any) {
+        favouriteButtonTapped()
     }
     
 }

@@ -29,29 +29,18 @@ struct CoreDataPersistenceService: PersistenceService {
             newMovie.title = item.title
             
             
-            do{
-                try context.save()
-            }catch(let err){
-                fatalError("failed to save to core data \(err.localizedDescription)")
-            }
-            
-            
         default:
             fatalError("failed to save to core data, error : The given PersistenceServiceKey is not define as core data")
             break
         }
         
-    }
-    
-    func retriveData<T>(_ type: T.Type, forKey defaultName: PersistenceServiceKey) -> T? where T : Decodable {
-        return nil
         
-    }
-    
-    
-    
-    
-    func delete(key: PersistenceServiceKey) {
+        do{
+            try context.save()
+        }catch(let err){
+            fatalError("failed to save to core data \(err.localizedDescription)")
+        }
+        
         
     }
     
@@ -77,9 +66,21 @@ struct CoreDataPersistenceService: PersistenceService {
             
         default:
             fatalError("failed to save to core data, error : The given PersistenceServiceKey is not define as core data")
-//            completion(.failure(NetworkingError.other("Failed to save")))
+            //            completion(.failure(NetworkingError.other("Failed to save")))
         }
     }
+    
+    
+    
+    func deleteCoreData(object: NSManagedObject) {
+        context.delete(object)
+    }
+    
+    
+    func retriveData<T>(_ type: T.Type, forKey defaultName: PersistenceServiceKey) -> T? where T : Decodable { return nil }
+    
+    func delete(key: PersistenceServiceKey) { }
+    
     
     
     

@@ -15,7 +15,7 @@ class DetailViewModel {
     typealias Factory = PersistenceServiceFactory
     private let factory: Factory
     
-    private lazy var userDefault: PersistenceService = factory.makeUserDefaultPersistenceService()
+    private lazy var persistenceService: PersistenceService = factory.makeUserDefaultPersistenceService()
     private var movie: MovieModel
     private var disposeBag = DisposeBag()
     
@@ -59,11 +59,11 @@ class DetailViewModel {
     
     private func isFavouriteMovie(){
         
-        let favMoviewIDs = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        let favMoviewIDs = persistenceService.retriveData([MovieModel].self, forKey: .favouriteMovie)
         
         // initial
         if favMoviewIDs == nil{
-            userDefault.saveData([MovieModel](), forKey: .favouriteMovie)
+            persistenceService.saveData([MovieModel](), forKey: .favouriteMovie)
         }
         
         favMoviewIDs?.contains(where: {$0.id == movie.id}) == true ? isFavouriteBinder.accept(true) : isFavouriteBinder.accept(false)
@@ -74,17 +74,17 @@ class DetailViewModel {
     
     /// Save favourite to persistence service
     private func saveToFavourite(){
-        var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        var favMovie = persistenceService.retriveData([MovieModel].self, forKey: .favouriteMovie)
         favMovie?.contains(where: {$0.id == movie.id}) == true ? nil : favMovie?.append(movie)
-        userDefault.saveData(favMovie, forKey: .favouriteMovie)
+        persistenceService.saveData(favMovie, forKey: .favouriteMovie)
     }
     
     
     /// delete favourite to persistence service
     private func deleteFavouriete(){
-        var favMovie = userDefault.retriveData([MovieModel].self, forKey: .favouriteMovie)
+        var favMovie = persistenceService.retriveData([MovieModel].self, forKey: .favouriteMovie)
         favMovie?.removeAll(where: {$0.id == movie.id})
-        userDefault.saveData(favMovie, forKey: .favouriteMovie)
+        persistenceService.saveData(favMovie, forKey: .favouriteMovie)
     }
     
     

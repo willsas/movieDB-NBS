@@ -15,4 +15,7 @@ extension UIImage{
     
     /// Get UIImage of House system
     static var house = UIImage(systemName: "house")
+    
+    /// Get uiimage of bookmark fill
+    static var bookmarkFill = UIImage(systemName: "bookmark.fill")
 }

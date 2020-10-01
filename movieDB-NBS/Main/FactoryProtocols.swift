@@ -74,6 +74,8 @@ protocol PersistenceServiceFactory {
     /// Make Realm Persistence Service
 //    func makeRealmPersistenceService() -> PersistenceService
     
+    
+    /// Return core data persistence service
     func makeCoreDataPersistenceService() -> PersistenceService
 }
 

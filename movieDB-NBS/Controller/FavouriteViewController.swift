@@ -67,15 +67,17 @@ class FavouriteViewController: UIViewController {
     /// Listen to datasource and tableview ItemSelected
     private func setupBinding(){
         
-        // data source
+        // table datasource
         vm.itemReadyToBind.bind(to: tableViewOutlet.rx.items(cellIdentifier: cellID, cellType: FavouriteTableViewCell.self)){ row, item, cell in
             cell.item = item
+            cell.favouriteButtonTapped = { [unowned self] in
+                self.requsetToRemoveFavourite(movie: item)
+            }
         }.disposed(by: disposeBag)
         
-        // action
+        // table action
         tableViewOutlet.rx.itemSelected.map{$0.item}
             .subscribe(onNext: { [unowned self] row in
-                
                 
                 guard let movie = self.vm.itemsAt(index: row),
                     let cell = self.tableViewOutlet.cellForRow(at: IndexPath(row: row, section: 0)) as? FavouriteTableViewCell,
@@ -83,10 +85,17 @@ class FavouriteViewController: UIViewController {
                 
                 self.coordinator.pushToDetailViewController(movie: movie, image: image)
                 
-                
-                
             }).disposed(by: disposeBag)
-        
+    }
+    
+    
+    /// Delete given MovieModel and refresh movie
+    /// - Parameter movie: given MovieModel
+    private func requsetToRemoveFavourite(movie: MovieModel){
+        UIAlertController.basicAlertWithCompletion(title: "Are you sure you want to remove?", message: "This will remove \"\(movie.title)\" from your favourite", buttonTitle: "Remove", vc: self) { [unowned self] (_) in
+            self.vm.deleteFavouriete(movie: movie)
+            self.vm.populateMovie()
+        }
     }
     
 }

@@ -109,7 +109,7 @@ class HomeViewModel: NSObject {
     
     
     /// Populate the HomeCoomingSoonMoviesViewModel items or change  HomeCoomingSoonMoviesViewModel
-    /// - Parameter movies: <#movies description#>
+    /// - Parameter movies: array of movie
     private func populateNewComingSoon(_ movies: [MovieModel]){
          items.removeAll(where: {$0.type == .comingSoon})
          items.insert(HomeComingSoonMoviesViewModel(items: movies), at: 2)

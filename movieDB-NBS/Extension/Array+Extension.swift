@@ -10,8 +10,7 @@ import Foundation
 
 extension Array {
     
-    /// Get value but optional
-    /// please play it saffe
+    /// Get value in optional
     public subscript(safe index: Int) -> Element?{
         guard startIndex <= index && index < endIndex else {
             return nil

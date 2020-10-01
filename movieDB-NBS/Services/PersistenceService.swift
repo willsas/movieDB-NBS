@@ -22,7 +22,8 @@ enum PersistenceServiceKey: String{
     /// [MoviewModel]
     case favouriteMovie
     
-    /// rawValue of EntityName Movie
+    /// MovieModel type
+    /// Able to save and fetch via core data with MovieModel
     case coreDataMovie = "Movie"
 }
 
@@ -50,12 +51,17 @@ protocol PersistenceService {
     
     
     
-    /// Fetch only for core data
+    /// Fetch for Core Data ONLY
     /// - Parameters:
     ///   - key: presistence key ONLY  has core data word in it
     ///   - type: model type
     ///   - completion: result of generic type
     func fetchCoreData<T>(key: PersistenceServiceKey, as type: T.Type, completion: @escaping (Result<[T], Error>) -> Void)
+    
+    
+    /// Delete given nsmanaged object with Core Data ONLY
+    /// - Parameter object: Core data object with context
+    func deleteCoreData(object: NSManagedObject)
     
     
 }
@@ -65,5 +71,6 @@ protocol PersistenceService {
 extension PersistenceService{
     
     func fetchCoreData<T>(key: PersistenceServiceKey, as type: T.Type, completion: @escaping (Result<[T], Error>) -> Void) { }
+    func deleteCoreData(object: NSManagedObject) { }
     
 }

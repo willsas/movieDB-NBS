@@ -205,9 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				BE1CC94A2523064700D3CA41 /* HomeViewModel.swift */,
-				BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */,
 				BE394FA42523B865007C5FA8 /* PopularViewModel.swift */,
 				BE394FA62523C45B007C5FA8 /* FavouriteViewModel.swift */,
+				BE394F9B252385EC007C5FA8 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,9 +239,9 @@
 		BE1CC91C2522E7C200D3CA41 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BE1CC94C25230D7800D3CA41 /* EnvironmentService.swift */,
 				BE1CC9372522ECB500D3CA41 /* Networking Service */,
 				BE1CC9362522ECAC00D3CA41 /* Persistence Service */,
-				BE1CC94C25230D7800D3CA41 /* EnvironmentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

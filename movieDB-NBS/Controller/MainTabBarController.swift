@@ -57,7 +57,7 @@ class MainTabBarController: UITabBarController {
         vc.navigationItem.title = "Favourite"
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationBar.prefersLargeTitles = true
-        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        nav.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage.bookmarkFill, selectedImage: UIImage.bookmarkFill)
         addChild(nav)
     }
     

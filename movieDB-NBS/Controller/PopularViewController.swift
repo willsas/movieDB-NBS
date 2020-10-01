@@ -95,7 +95,7 @@ extension PopularViewController: UICollectionViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width - CGFloat(padding) * 2) / CGFloat(2)
-        let height = width * (16 / 9) + 70
+        let height = width * (16 / 9) + 80
         return CGSize(width: width, height: height)
     }
     

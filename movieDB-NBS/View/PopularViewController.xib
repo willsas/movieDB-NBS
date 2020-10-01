@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-ke-Ect">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="5" y="44" width="404" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jsS-yy-GGR">
                         <size key="itemSize" width="128" height="300"/>
@@ -31,8 +31,8 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="XUZ-ke-Ect" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1hx-WE-KdV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XUZ-ke-Ect" secondAttribute="trailing" id="XWY-KU-OOn"/>
+                <constraint firstItem="XUZ-ke-Ect" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="1hx-WE-KdV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XUZ-ke-Ect" secondAttribute="trailing" constant="5" id="XWY-KU-OOn"/>
                 <constraint firstItem="XUZ-ke-Ect" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cuF-Ya-NaS"/>
                 <constraint firstAttribute="bottom" secondItem="XUZ-ke-Ect" secondAttribute="bottom" id="sA3-q1-qbk"/>
             </constraints>
